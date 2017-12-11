@@ -1,0 +1,39 @@
+.navbar{
+  color: white;
+}
+.map{
+  background: purple;
+  height: 400px;
+}
+.tabs{
+  margin-top: 20px;
+}
+body{
+  background: #f1f1f1;
+}
+.posts{
+  background: white;
+  margin: 10px;
+  border-radius: 0.5em;
+}
+.pro{
+  height: 100%;
+  width: 100%;
+}
+.title{
+  background: white;
+  /*height: 50px;*/
+  /*padding: 10px;*/
+}
+span{
+  float: right;
+}
+.search{
+  background: white;
+  /*height: 50px;*/
+  /*padding: 10px;*/
+  /*float: right;*/
+}
+.uploads{
+  padding: 20px;
+}
