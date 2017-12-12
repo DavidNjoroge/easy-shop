@@ -1,17 +1,8 @@
-<!DOCTYPE html>
-<html>
-
-<head>
-  <meta charset="utf-8">
-  <title></title>
-  <link rel="stylesheet" href="bootstrap.css">
-  <link rel="stylesheet" href="syles.css">
-</head>
-
-<body>
-  <nav class="navbar navbar-inverse">
-    <h1>Easy Shops</h1>
-  </nav>
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+{{block.super}}
+{% load bootstrap3 %}
   <div class="container">
     <div class="map" id="map">
 
@@ -50,15 +41,11 @@
       </div>
     </div>
   </div>
+<script type="text/javascript" src="{% static 'css/styles.css' %}">
+</script>
 
-</body>
-<!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAfeePmXWfr3eKsSfpBlGsycHdES0kyOsI&libraries=places" async defer></script> -->
-<script type="text/javascript" src="jquery-3.2.1.js">
-</script>
-<script type="text/javascript" src="index.js">
-</script>
-<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBoOk2exnpYMGhrh-7VvmdHCh5gcA-qhNM&callback=initMap">
-</script>
-<!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDzagtRGEXwmPqJjQfrEbNksQx2bWkqn6Y&libraries=places" async defer></script> -->
-
-</html>
+{% endblock %}
+{% block scripts %}
+{{block.super}}
+{% bootstrap_javascript %}
+{% endblock %}

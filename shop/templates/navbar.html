@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+</head>
+<body>
+    <nav class="navbar navbar-inverse">
+        <h1>Easy Shops</h1>
+        <ul class="nav navbar-nav navbar-right">
+                {% if user.is_authenticated %}
+            <li><a href="/logout">Logout</a></li>
+            {% else %}
+            <li><a href="/accounts/login">Login</a></li>
+            <li><a href="/accounts/register">signup</a></li>
+            {% endif %}
+        </ul>
+    </nav>
+</body>
+</html>
