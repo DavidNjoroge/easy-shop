@@ -1,3 +1,5 @@
 bootstrap.css
 virtual/
 jquery-3.2.1.js
+*pyc
+db.sqlite3
