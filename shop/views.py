@@ -4,6 +4,7 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 from .models import ShopProfile,Media
 from .serializer import ShopsSerializer
+from .request import get_movie
 
 # Create your views here.
 def index(request):
@@ -29,7 +30,7 @@ def shop(request,shop_id):
     movies=Media.get_shop_movies(shop_id)
     medias=[]
     for movie in movies:
-        processed=get_movie(movie.id)
+        processed=get_movie(movie.moviedb)
         medias.append(processed)
     print(len(medias))
-    return render(request,'shop.html',{'shop':shop})
+    return render(request,'shop.html',{'shop':shop,'medias':medias})

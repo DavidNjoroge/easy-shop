@@ -23,15 +23,17 @@
     </div>
 
     <div class="">
+        {% for media in medias %}
       <div class="row posts">
-        <div class="col-md-2">
-          <img src="profile.jpg" class="img-responsive" alt="">
+        <div class="col-md-1">
+          <img src="{{media.image}}" class="img-responsive movie-img" alt="">
         </div>
         <div class="col-md-8 uploads">
-          <p><strong>punisher season 1</strong></p>
+          <p><strong>{{media.title}}</strong></p>
           <a href="#" class="btn btn-info">Book</a>
         </div>
       </div>
+      {% endfor %}
       <div class="row posts">
         <div class="col-md-2">
           <img src="profile.jpg" class="img-responsive" alt="">

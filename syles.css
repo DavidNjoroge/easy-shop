@@ -37,3 +37,8 @@ span{
 .uploads{
   padding: 20px;
 }
+.box{
+  background: white;
+  padding: 10px;
+  margin: 10px;
+}

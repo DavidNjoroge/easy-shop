@@ -22,7 +22,7 @@ def get_movies(category):
 
         if get_movies_response['results']:
             movie_results_list=get_movies_response['results']
-            movie_results=process_results(movie_results_list)
+            # movie_results=process_results(movie_results_list)
 
     return movie_results
 
@@ -50,7 +50,7 @@ def process_results(movie_list):
     return movie_results
 def get_movie(id):
     get_movie_details_url = base_url.format(id, api_key)
-
+    print(get_movie_details_url)
     with urllib.request.urlopen(get_movie_details_url) as url:
         movie_details_data = url.read()
         movie_details_response = json.loads(movie_details_data)
