@@ -35,13 +35,17 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
 }
 qwerty={'get':'working'}
 $.ajax({
-    'url':'/ajax/all_shop/',
-    'type':'POST',
-    'data':qwerty,
-    'dataType':'json',
+    'url':'/ajax/all_shops/',
+    'type':'GET',
+    // 'data':qwerty,
+    // 'dataType':'json',
     'success':function(data){
-        for (i=0;i<dat.length;i++){
-            console.log(data[i])
+        for (i=0;i<data.length;i++){
+            console.log(data[i].latitude)
+            var marker = new google.maps.Marker({
+                position: new google.maps.LatLng(data[i].latitude, data[i].longitude),
+                map: map,
+            });
         }
     }
 })

@@ -3,5 +3,5 @@ from . import views
 
 urlpatterns=[
     path('',views.index,name='index'),
-    path('ajax/all_shops/',views.shops,name='shop')
+    path('ajax/all_shops/',views.ShopList.as_view())
 ]
