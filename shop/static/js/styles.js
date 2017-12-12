@@ -33,3 +33,15 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
                         'Error: Your browser doesn\'t support geolocation.');
   infoWindow.open(map);
 }
+qwerty={'get':'working'}
+$.ajax({
+    'url':'/ajax/all_shop/',
+    'type':'POST',
+    'data':qwerty,
+    'dataType':'json',
+    'success':function(data){
+        for (i=0;i<dat.length;i++){
+            console.log(data[i])
+        }
+    }
+})
