@@ -22,3 +22,6 @@ class ShopList(APIView):
         all_shops=ShopProfile.objects.all()
         serializers=ShopsSerializer(all_shops,many=True)
         return Response(serializers.data)
+
+def shop(request,shop_id):
+    return render(request,'shop.html')

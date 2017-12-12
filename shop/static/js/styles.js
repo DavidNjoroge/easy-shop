@@ -37,14 +37,17 @@ qwerty={'get':'working'}
 $.ajax({
     'url':'/ajax/all_shops/',
     'type':'GET',
-    // 'data':qwerty,
-    // 'dataType':'json',
     'success':function(data){
         for (i=0;i<data.length;i++){
             console.log(data[i].latitude)
             var marker = new google.maps.Marker({
                 position: new google.maps.LatLng(data[i].latitude, data[i].longitude),
                 map: map,
+                title:data[i].shopname,
+                url: "shop/"+data[i].id
+            });
+            google.maps.event.addListener(marker, 'click', function() {
+                window.location.href = this.url;
             });
         }
     }

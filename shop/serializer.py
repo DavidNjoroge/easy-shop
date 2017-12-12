@@ -4,4 +4,4 @@ from .models import ShopProfile
 class ShopsSerializer(serializers.ModelSerializer):
     class Meta:
         model = ShopProfile
-        fields=('latitude','longitude','shopname')
+        fields=('id','latitude','longitude','shopname')
