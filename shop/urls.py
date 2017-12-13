@@ -10,6 +10,7 @@ urlpatterns=[
     path('setup/',views.setup,name='setup'),
     path('setup/next/',views.next),
     path('ajax/setup/',views.ajax_setup),
+    path('myshop/<int:user_id>',views.myshop,name='myshop'),
 
 ]
 if settings.DEBUG:

@@ -14,7 +14,8 @@ from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 def index(request):
-    return render(request,'index.html')
+    medias=Media.objects.all()
+    return render(request,'index.html',{'medias':medias})
 
 def shops(request):
     data=[
@@ -62,3 +63,6 @@ def next(request):
             form.save()
             print('harrrooo')
     return render(request,'setupnext.html')
+
+def myshop(request,user_id):
+    return render(request,'myshop.html')
