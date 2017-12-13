@@ -8,8 +8,8 @@ class Role(models.Model):
 
 class ShopProfile(models.Model):
     user=models.OneToOneField(User,on_delete=models.CASCADE)
-    latitude=models.FloatField(blank=True)
-    longitude=models.FloatField(blank=True)
+    latitude=models.FloatField(null=True)
+    longitude=models.FloatField(null=True)
     imageprofile=models.ImageField(upload_to='profile/')
     shopname=models.CharField(max_length=50)
 
