@@ -1,6 +1,4 @@
-.navbar{
-  color: white;
-}
+
 .map{
   background: purple;
   height: 400px;
@@ -37,9 +35,7 @@ span{
 .uploads{
   padding: 20px;
 }
-.navbar-nav{
-  height: 20px;
-}
+
 .movie-img{
   height: 100%;
 }

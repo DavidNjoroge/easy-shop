@@ -128,3 +128,4 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 EMBEDLY_KEY = 'b96866fa1f778899854a43cab55ba554'
+LOGIN_REDIRECT_URL='/'

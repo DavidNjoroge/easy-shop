@@ -8,6 +8,8 @@ from .request import get_movie
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from .forms import ShopProfileForm
+from django.contrib.auth.decorators import login_required
+
 
 
 # Create your views here.
@@ -48,6 +50,15 @@ def ajax_setup(request):
     lng=request.POST.get('lng')
     # print()
     return JsonResponse(data)
-
+@login_required(login_url='/accounts/login/')
 def next(request):
+    if request.method=='POST':
+            
+        form=ShopProfileForm(request.POST,request.FILES)
+        print(request.user.id)
+    
+        if form.is_valid():
+            form.user=request.user
+            form.save()
+            print('harrrooo')
     return render(request,'setupnext.html')

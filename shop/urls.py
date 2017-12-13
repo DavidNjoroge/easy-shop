@@ -7,7 +7,6 @@ urlpatterns=[
     path('',views.index,name='index'),
     path('ajax/all_shops/',views.ShopList.as_view()),
     path('shop/<int:shop_id>',views.shop,name='shop'),
-    path('accounts/',include('registration.backends.simple.urls')),
     path('setup/',views.setup,name='setup'),
     path('setup/next/',views.next),
     path('ajax/setup/',views.ajax_setup),

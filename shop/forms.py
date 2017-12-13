@@ -3,4 +3,4 @@ from .models import *
 class ShopProfileForm(forms.ModelForm):
     class Meta:
         model=ShopProfile
-        exclude=('user','latitude','longitude')
+        fields=('imageprofile','shopname')

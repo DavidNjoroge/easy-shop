@@ -28,7 +28,6 @@ class ShopProfile(models.Model):
         new_profile.save()
         return True
 
-
 class Movie:
     '''
     movie class to define movie objects
