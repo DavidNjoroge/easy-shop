@@ -12,7 +12,9 @@ function initMap() {
         lat: position.coords.latitude,
         lng: position.coords.longitude
       };
-
+      console.log(pos.lat)
+      console.log(pos.lng)
+      
       infoWindow.setPosition(pos);
       infoWindow.setContent('Location found.');
       infoWindow.open(map);
@@ -33,22 +35,11 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
                         'Error: Your browser doesn\'t support geolocation.');
   infoWindow.open(map);
 }
-qwerty={'get':'working'}
-$.ajax({
-    'url':'/ajax/all_shops/',
-    'type':'GET',
-    'success':function(data){
-        for (i=0;i<data.length;i++){
-            console.log(data[i].latitude)
-            var marker = new google.maps.Marker({
-                position: new google.maps.LatLng(data[i].latitude, data[i].longitude),
-                map: map,
-                title:data[i].shopname,
-                url: "shop/"+data[i].id
-            });
-            google.maps.event.addListener(marker, 'click', function() {
-                window.location.href = this.url;
-            });
-        }
-    }
-})  
+// $.ajax({
+//     'url':'/ajax/newsletter/',
+//     'type':'POST',
+//     'data':form.serialize(),
+//     'dataType':'json',
+//     'success': function(data){
+//       alert(data['success'])
+//     }

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <link rel="stylesheet" href="bootstrap.css">
+  <link rel="stylesheet" href="syles.css">
+</head>
+
+<body>
+  <nav class="navbar navbar-inverse">
+    <h1>Easy Shops</h1>
+  </nav>
+  <div class="container">
+      <div class="col-md-6">
+          <div class="map" id="map">
+      
+          </div>
+      </div>
+      <div class="col-md-6">
+          <form action='/setup/' method="post"  enctype="multipart/form-data">
+            <input type="file" name="pic" accept="image/*">
+            <input type="text" id="id_home" placeholder="Shop Name">
+            <input type="submit" value="Submit">
+          </form>
+      </div>
+  </div>
+
+</body>
+<!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAfeePmXWfr3eKsSfpBlGsycHdES0kyOsI&libraries=places" async defer></script> -->
+<script type="text/javascript" src="jquery-3.2.1.js">
+</script>
+<script type="text/javascript" src="index2.js">
+</script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBoOk2exnpYMGhrh-7VvmdHCh5gcA-qhNM&callback=initMap">
+</script>
+<!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDzagtRGEXwmPqJjQfrEbNksQx2bWkqn6Y&libraries=places" async defer></script> -->
+
+</html>

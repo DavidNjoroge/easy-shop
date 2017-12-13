@@ -42,3 +42,43 @@ span{
   padding: 10px;
   margin: 10px;
 }
+#sidebar{
+  min-width: 250px;
+  max-width: 250px;
+  left: -250px;
+  background: pink;
+}
+.wrapper{
+  display: flex;
+}
+.container{
+  padding: 0;
+}
+.row{
+  padding: 0;
+}
+#sidebar img{
+  padding: 10px;
+}
+.sidebar-header{
+  height: 50px;
+  text-align: center;
+}
+
+#sidebar ul li{
+  list-style: none;
+  padding: 10px;
+  
+}
+#sidebar ul li a{
+  color: white;
+  font-size: 18px;
+}
+nav{
+  background: #363440;
+}
+#sidebar{
+  background: #363440;
+  color: white;
+  
+}

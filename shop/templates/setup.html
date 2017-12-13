@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+{{block.super}}
+{% load bootstrap3 %}
+    <h1>Setup Shop Account</h1>
+    <div class="container">
+            <div class="col-md-6">
+                <div class="map" id="map">
+            
+                </div>
+            </div>
+            <div class="col-md-6">
+                <form action='/setup/' method="post"  enctype="multipart/form-data">
+                  <input type="file" name="pic" accept="image/*">
+                  <input type="text" id="id_home" placeholder="Shop Name">
+                  <input type="submit" value="Submit">
+                </form>
+            </div>
+        </div>
+      
+    {% endblock %}
+    {% block scripts %}
+    {{block.super}}
+    {% bootstrap_javascript %}
+    {% endblock %}

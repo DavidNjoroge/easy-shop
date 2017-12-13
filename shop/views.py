@@ -17,7 +17,8 @@ def shops(request):
         {'name':"mclaren"}
     ]
     return Response(data)
-
+def setup(request):
+    return render(request,'setup.html')
 class ShopList(APIView):
     def get(self,request,format=None):
         all_shops=ShopProfile.objects.all()
