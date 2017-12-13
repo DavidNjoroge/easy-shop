@@ -5,6 +5,10 @@ from rest_framework.views import APIView
 from .models import ShopProfile,Media
 from .serializer import ShopsSerializer
 from .request import get_movie
+from django.http import JsonResponse
+from django.views.decorators.csrf import csrf_exempt
+from .forms import ShopProfileForm
+
 
 # Create your views here.
 def index(request):
@@ -18,7 +22,8 @@ def shops(request):
     ]
     return Response(data)
 def setup(request):
-    return render(request,'setup.html')
+    form=ShopProfileForm
+    return render(request,'setup.html',{'form':form})
 class ShopList(APIView):
     def get(self,request,format=None):
         all_shops=ShopProfile.objects.all()
@@ -35,3 +40,14 @@ def shop(request,shop_id):
         medias.append(processed)
     print(len(medias))
     return render(request,'shop.html',{'shop':shop,'medias':medias})
+
+@csrf_exempt
+def ajax_setup(request):
+    data={'success':'sdfssdssd'}
+    lat=request.POST.get('lat')
+    lng=request.POST.get('lng')
+    # print()
+    return JsonResponse(data)
+
+def next(request):
+    return render(request,'setupnext.html')

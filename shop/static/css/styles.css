@@ -43,3 +43,6 @@ span{
 .movie-img{
   height: 100%;
 }
+#map{
+  height: 400px;
+}
