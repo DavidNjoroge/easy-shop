@@ -22,7 +22,8 @@
             <li><a href="/logout">Logout</a></li>
             
             {% elif user.is_authenticated %}
-            <li class="active"><a href="#">Create Shop</a></li>
+            <li class="active"><a href="/setup">Create Shop</a></li>
+            <li><a href="/logout">Logout</a></li>
             {% else %}
             <li>
               <a href="/accounts/login">Login</a>

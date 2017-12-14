@@ -32,13 +32,14 @@ class Movie:
     '''
     movie class to define movie objects
     '''
-    def __init__(self,id,title,overview,image,vote_average,vote_count):
+    def __init__(self,id,title,overview,image,vote_average,vote_count,shop):
         self.id =id
         self.title = title
         self.overview = overview
         self.image = 'https://image.tmdb.org/t/p/w500'+image
         self.vote_average = vote_average
         self.vote_count = vote_count
+        self.shop=shop
 
 class Media(models.Model):
     shop = models.ForeignKey(ShopProfile,on_delete=models.CASCADE)
@@ -54,3 +55,13 @@ class Media(models.Model):
         #     processed=get_movie(movie.id)
         #     movies.append(processed)
         return movies
+class MovieClass(models.Model):
+    user=models.ForeignKey(User,on_delete=models.CASCADE)
+    media=models.ForeignKey(Media,on_delete=models.CASCADE)
+
+
+class Subscribe(models.Model):
+    shop=models.ForeignKey(ShopProfile,on_delete=models.CASCADE)
+    user=models.ForeignKey(User,on_delete=models.CASCADE)
+
+    

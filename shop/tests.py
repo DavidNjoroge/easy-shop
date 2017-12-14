@@ -28,4 +28,4 @@ class ShopProfileTextClass(TestCase):
         shop.latitude=1234.2
         shop.longitude=12.54
         shop.save()
-        self.assertEqual(shop.latitude,1234.2)
+        self.assertEqual(shop.latitude,1234.2) 

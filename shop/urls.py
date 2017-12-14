@@ -11,6 +11,7 @@ urlpatterns=[
     path('setup/next/',views.next),
     path('ajax/setup/',views.ajax_setup),
     path('myshop/<int:user_id>',views.myshop,name='myshop'),
+    path('subscribe/<int:shop_id>',views.subscribe,name='subscribe')
 
 ]
 if settings.DEBUG:

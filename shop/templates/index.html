@@ -1,36 +1,42 @@
-{% extends 'base.html' %}
-{% load static %}
-{% block content %}
-{{block.super}}
-{% load bootstrap3 %}
-  <div class="container">
-    <div class="map" id="map">
+{% extends 'base.html' %} {% load static %} {% block content %} {{block.super}} {% load bootstrap3 %}
+<div class="container">
+  <div class="map" id="map">
 
-    </div>
   </div>
-  <div class="container tabs">
-    <ul class="nav nav-tabs">
-      <li role="presentation" class="active"><a href="#">Top Rated</a></li>
-      <li role="presentation"><a href="#">New Releases</a></li>
-      <li role="presentation"><a href="#">Trending</a></li>
-    </ul>
-    <div class="">
-      {% for media in medias %}
-      <div class="row posts">
-        <div class="col-md-2">
-          <img src="profile.jpg" class="img-responsive img-thumbnail" alt="">
-        </div>
-        <div class="col-md-9">
-          <h3>{{media.shop.shopname}}</h3>
-          <h5>{{media.moviedb}}</h5>
-          <span class="right">1000 likes</span>
-        </div>
-        <div class="col-md-1">
-          <a href="#" class="btn btn-lg btn-info">Like</a>
+</div>
+<div class="container tabs">
+  <ul class="nav nav-tabs">
+    <li role="presentation" class="active">
+      <a href="#">Top Rated</a>
+    </li>
+    <li role="presentation">
+      <a href="#">New Releases</a>
+    </li>
+    <li role="presentation">
+      <a href="#">Trending</a>
+    </li>
+  </ul>
+  <div class="row">
+    {% for media in medias %}
+    <div class="col-md-6">
+      <div class="posts">
+        <div class="row">
+          <div class="col-md-2">
+            <img src="{{media.shop.imageprofile.url}}" class="img-responsive img-thumbnail" alt="">
+          </div>
+          <div class="col-md-9">
+            <h3>{{media.shop.shopname}}</h3>
+            <h5>{{media.title}}</h5>
+            <span class="">1000 likes</span>
+            <a href="#" class="btn btn-info">Like</a>
+          </div>
+          <div class="col-md-1">
+          </div>
         </div>
       </div>
-      {% endfor %}
-      <!-- <div class="row posts">
+    </div>
+    {% endfor %}
+    <!-- <div class="row posts">
         <div class="col-md-2">
           <img src="profile.jpg" class="img-responsive img-thumbnail" alt="">
         </div>
@@ -42,15 +48,11 @@
           <a href="#" class="btn btn-lg btn-info">Like</a>
         </div>
       </div> -->
-    </div>
   </div>
+</div>
 <script type="text/javascript" src="{% static 'js/styles.js' %}">
 </script>
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBoOk2exnpYMGhrh-7VvmdHCh5gcA-qhNM&callback=initMap">
 </script>
 
-{% endblock %}
-{% block scripts %}
-{{block.super}}
-{% bootstrap_javascript %}
-{% endblock %}
+{% endblock %} {% block scripts %} {{block.super}} {% bootstrap_javascript %} {% endblock %}

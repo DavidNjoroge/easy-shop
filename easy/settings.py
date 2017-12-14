@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'shop',
     'bootstrap3',
     'rest_framework',
+    # 'liked',
 ]
 
 MIDDLEWARE = [
