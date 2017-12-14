@@ -81,4 +81,5 @@ def myshop(request,user_id):
 def subscribe(request,shop_id):
     shop=ShopProfile.objects.get(pk=shop_id)
     new_subscriber=Subscribe(shop=shop,user=request.user)
+    new_subscriber.save()
     return redirect('/shop/'+str(shop_id))
