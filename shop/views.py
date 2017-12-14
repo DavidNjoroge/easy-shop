@@ -40,6 +40,7 @@ class ShopList(APIView):
 def shop(request,shop_id):
     
     shop = ShopProfile.objects.get(pk=shop_id)
+
     movies=Media.get_shop_movies(shop_id)
     medias=[]
     for movie in movies:
@@ -83,3 +84,9 @@ def subscribe(request,shop_id):
     new_subscriber=Subscribe(shop=shop,user=request.user)
     new_subscriber.save()
     return redirect('/shop/'+str(shop_id))
+
+def search(request):
+    if 'search' in request.GET and not request.GET['search']==None:
+        search_term=request.GET['search']
+        print(search_term)
+    return render (request,'search.html')

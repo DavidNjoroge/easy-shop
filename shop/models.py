@@ -55,6 +55,14 @@ class Media(models.Model):
         #     processed=get_movie(movie.id)
         #     movies.append(processed)
         return movies
+
+    @classmethod
+    def get_subscribers_Medias(cls,user):
+        shops=Subscribe.objects.filter(user=user)
+        all_medias=[]
+        for shop in shops:
+            movies=Media.objects.filter(shop=shop)
+        return movies
 class MovieClass(models.Model):
     user=models.ForeignKey(User,on_delete=models.CASCADE)
     media=models.ForeignKey(Media,on_delete=models.CASCADE)

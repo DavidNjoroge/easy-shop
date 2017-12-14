@@ -1,0 +1,11 @@
+{% extends 'base.html' %} 
+{% load static %} 
+{% block content %} 
+{{block.super}} 
+{% load bootstrap3 %}
+<form class="navbar-form" action="/search/" role="search">
+    <div class="form-group">
+        <input type="text" class="form-control" placeholder="Search" name="search">
+    </div>
+</form>
+{% endblock %} {% block scripts %} {{block.super}} {% bootstrap_javascript %} {% endblock %}
