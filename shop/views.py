@@ -4,7 +4,7 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 from .models import ShopProfile,Media,Subscribe
 from .serializer import ShopsSerializer
-from .request import get_movie,get_movie_shop
+from .request import get_movie,get_movie_shop,search_movie
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from .forms import ShopProfileForm
@@ -15,11 +15,11 @@ from django.contrib.auth.decorators import login_required
 # Create your views here.
 def index(request):
     medias=Media.objects.all()
-    # processed_medias=[]
-    # for media in medias:
-    #     movies=get_movie_shop(media)
-    #     processed_medias.append(movies)
-    return render(request,'index.html',{'medias':medias})
+    processed_medias=[]
+    for media in medias:
+        movies=get_movie_shop(media)
+        processed_medias.append(movies)
+    return render(request,'index.html',{'medias':processed_medias})
 
 def shops(request):
     data=[
@@ -76,8 +76,15 @@ def next(request):
             print(form.data['shopname'])
     return render(request,'setupnext.html')
 
-def myshop(request,user_id):
-    return render(request,'myshop.html')
+def myshop(request):
+    shop=ShopProfile.objects.get(user=request.user)
+    subscribers=Subscribe.objects.filter(shop=shop)
+    medias=Media.objects.filter(shop=shop)
+    processed_medias=[]
+    for media in medias:
+        movies=get_movie_shop(media)
+        processed_medias.append(movies)
+    return render(request,'myshop.html',{'shop':shop,'sub':subscribers,'medias':processed_medias})
 
 def subscribe(request,shop_id):
     shop=ShopProfile.objects.get(pk=shop_id)
@@ -89,4 +96,20 @@ def search(request):
     if 'search' in request.GET and not request.GET['search']==None:
         search_term=request.GET['search']
         print(search_term)
-    return render (request,'search.html')
+        movie_name_list = search_term.split(" ")
+        movie_name_format = "+".join(movie_name_list)
+        searched_movies = search_movie(movie_name_format)
+    return render (request,'search.html',{'movies':searched_movies})
+
+def add_movie(request,moviedb):
+    shop=ShopProfile.objects.get(user=request.user.id)
+    print(shop)
+    new_media=Media(shop=shop,type='movie',moviedb=moviedb)
+    new_media.save()
+    return redirect('/myshop/1')
+
+def delete(request,media_id):
+    # media_item=Media.objects.filter(moviedb=media_id).delete()
+    # print(media_item)
+    # media_item.delete()
+    return redirect(myshop)

@@ -1,6 +1,6 @@
 from django.test import TestCase
 from django.contrib.auth.models import User
-from .models import ShopProfile
+from .models import ShopProfile,Like,Media
 
 # Create your tests here.
 
@@ -29,3 +29,13 @@ class ShopProfileTextClass(TestCase):
         shop.longitude=12.54
         shop.save()
         self.assertEqual(shop.latitude,1234.2) 
+
+class LikeTestClass(TestCase):
+    def setUp(self):
+        self.david=User(username='david',password='sdfsdfsd')
+        self.david.save()
+        self.new_profile=ShopProfile(user=self.david,latitude=12.0,longitude=3.6,imageprofile='sdfs',shopname='sdfdsfsd')
+        self.new_profile.save()
+        self.new_media=Media(shop=self.new_profile,type='movie',moviedb=5678)
+        self.new_media.save()
+        self.like=Like(media=self.new_media,number)

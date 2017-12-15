@@ -10,9 +10,11 @@ body{
   background: #f1f1f1;
 }
 .posts{
+  /* height: 200px; */
   background: white;
   margin: 10px;
   border-radius: 0.5em;
+  padding: 10px;
 }
 .pro{
   height: 100%;
@@ -39,4 +41,23 @@ body{
 }
 #map{
   height: 400px;
+}
+.platform{
+  background: white;
+  padding: 10px;
+  text-align: center;
+}
+.navbar{
+  padding-left: 10px;
+  padding-right: 10px;
+}
+.navbar a  {
+  color: white !important;
+  
+}
+.img-thumbnail{
+  height: 132px;
+}
+.postq{
+  margin: 10px;
 }

@@ -6,51 +6,46 @@
 </div>
 <div class="container tabs">
   <ul class="nav nav-tabs">
-    <li role="presentation" class="active">
-      <a href="#">Top Rated</a>
+    <li class="active">
+      <a id="rate" href="#top" data-toggle='tab'>Top Rated</a>
     </li>
-    <li role="presentation">
-      <a href="#">New Releases</a>
+    <li>
+      <a href="#new"data-toggle='tab'>New Releases</a>
     </li>
-    <li role="presentation">
-      <a href="#">Trending</a>
+    <li>
+      <a href="#subscribed"data-toggle='tab'>Trending</a>
     </li>
   </ul>
+  <div class="tab-content">
+    <div class="tab-pane" id="top">
+
+    </div>
+    <div class="tab-pane" id="new">
+        
+    </div>
+    <div class="tab-pane" id="subscribed">
+        
+    </div>
+  </div>
+
   <div class="row">
     {% for media in medias %}
-    <div class="col-md-6">
-      <div class="posts">
-        <div class="row">
-          <div class="col-md-2">
+    <div class="col-md-2 posts">
+      <div class="">
             <img src="{{media.shop.imageprofile.url}}" class="img-responsive img-thumbnail" alt="">
-          </div>
-          <div class="col-md-9">
-            <h3>{{media.shop.shopname}}</h3>
+            <h3> <a href="/shop/{{media.shop.id}}"> {{media.shop.shopname}}</a></h3>
             <h5>{{media.title}}</h5>
-            <span class="">1000 likes</span>
-            <a href="#" class="btn btn-info">Like</a>
-          </div>
-          <div class="col-md-1">
-          </div>
-        </div>
+            <!-- <span class="">1000 likes</span>
+            <a href="#" class="btn btn-info">Like</a> -->
       </div>
     </div>
     {% endfor %}
-    <!-- <div class="row posts">
-        <div class="col-md-2">
-          <img src="profile.jpg" class="img-responsive img-thumbnail" alt="">
-        </div>
-        <div class="col-md-9">
-          <h5>Crazy Monkey Ent</h5>
-          <span class="right">1000 likes</span>
-        </div>
-        <div class="col-md-1">
-          <a href="#" class="btn btn-lg btn-info">Like</a>
-        </div>
       </div> -->
   </div>
 </div>
 <script type="text/javascript" src="{% static 'js/styles.js' %}">
+</script>
+<script type="text/javascript" src="{% static 'js/tabs.js' %}">
 </script>
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBoOk2exnpYMGhrh-7VvmdHCh5gcA-qhNM&callback=initMap">
 </script>
