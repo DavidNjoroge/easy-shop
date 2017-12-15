@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+{{block.super}}
+{% load bootstrap3 %}
+    <h1>Using Current Location</h1>
+    <div class="container">
+        <div class="col-md-6">
+            <div id="map">
+
+            </div>
+            <button class="btn btn-info btn-lg">Submit Current Location</button>
+    
+        </div>
+    </div>
+        <script type="text/javascript" src="{% static 'js/scripts3.js' %}">
+        </script>
+        <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBoOk2exnpYMGhrh-7VvmdHCh5gcA-qhNM&callback=initMap">
+        </script>
+    {% endblock %}
+    {% block scripts %}
+    {{block.super}}
+    {% bootstrap_javascript %}
+    {% endblock %}

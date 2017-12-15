@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+{{block.super}}
+{% load bootstrap3 %}
+    <h1>Setup Shop Account</h1>
+    <div class="container">
+            <div class="col-md-6">
+                <form  action="/setup/next/" method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {% bootstrap_form form %}
+                    <div class="form-group">
+                        <input type="submit" class="btn btn-primary btn-sm" value="save and continue" >
+                    </div>
+        
+                    <input type="hidden" name="next" value="/setup/next">
+        
+                    </form>
+            </div>
+        </div>
+        <!-- <script type="text/javascript" src="{% static 'js/scripts2.js' %}">
+        </script>
+        <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBoOk2exnpYMGhrh-7VvmdHCh5gcA-qhNM&callback=initMap">
+        </script> -->
+    {% endblock %}
+    {% block scripts %}
+    {{block.super}}
+    {% bootstrap_javascript %}
+    {% endblock %}

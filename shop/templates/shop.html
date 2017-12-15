@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+{{block.super}}
+{% load bootstrap3 %}
+  <div class="container">
+    <div class="row" id="map">
+      <div class="col-md-8">
+        <img src="{{shop.imageprofile.url}}" class="img-responsive pro" alt="">
+      </div>
+      <div class="col-md-4">
+        <h3>{{shop.shopname}} <span class="right"> {% if user.subscribe.shop.id == shop.id%} Subscribed
+        {% else %}
+        <a href="/subscribe/{{shop.id}}" class="btn btn-primary">Subscribe</a>
+          {% endif %}
+        </span></h3>
+        <p><strong>Location</strong> Nairobi CBD</p>
+      </div>
+    </div>
+  </div>
+  <div class="container tabs">
+    <div class="title">
+      <p>{{shop.shopname}} </p>
+      <div class="search">
+        <input type="text" class="form-control" id="inputEmail3" placeholder="search">
+      </div>
+    </div>
+
+    <div class="row">
+        {% for media in medias %}
+      <div class="col-md-2 postq">
+        <div class="">
+          <img src="{{media.image}}"   class="img-responsive" alt="">
+          <p><strong>{{media.title}}</strong></p>
+          <a href="#" class="btn btn-info">Book</a>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+  {% endblock %}
+  {% block scripts %}
+  {{block.super}}
+  {% bootstrap_javascript %}
+  {% endblock %}

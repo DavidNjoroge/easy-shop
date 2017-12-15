@@ -1,6 +1,4 @@
-.navbar{
-  color: white;
-}
+
 .map{
   background: purple;
   height: 400px;
@@ -12,9 +10,11 @@ body{
   background: #f1f1f1;
 }
 .posts{
+  /* height: 200px; */
   background: white;
   margin: 10px;
   border-radius: 0.5em;
+  padding: 10px;
 }
 .pro{
   height: 100%;
@@ -25,9 +25,7 @@ body{
   /*height: 50px;*/
   /*padding: 10px;*/
 }
-span{
-  float: right;
-}
+
 .search{
   background: white;
   /*height: 50px;*/
@@ -37,6 +35,29 @@ span{
 .uploads{
   padding: 20px;
 }
-.navbar-nav{
-  height: 20px;
+
+.movie-img{
+  height: 100%;
+}
+#map{
+  height: 400px;
+}
+.platform{
+  background: white;
+  padding: 10px;
+  text-align: center;
+}
+.navbar{
+  padding-left: 10px;
+  padding-right: 10px;
+}
+.navbar a  {
+  color: white !important;
+  
+}
+.img-thumbnail{
+  height: 132px;
+}
+.postq{
+  margin: 10px;
 }

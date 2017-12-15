@@ -1,0 +1,56 @@
+
+  {% extends 'base.html' %}
+  {% load static %}
+  {% block content %}
+  {{block.super}}
+  {% load bootstrap3 %}
+
+<div class="container">
+    <nav class="navbar">
+        <h1>Easy Shops</h1>
+      </nav>
+<div class="rcontainer">
+  <div class="col-md-4 add">
+    <div class="box">
+      <h1>Add New Media</h1>
+
+      <a href="" class="btn btn-info btn-bg" >Add</a>
+    </div>
+  </div>
+  <div class="col-md-4 add">
+    <div class="box">
+      <h1>Medias</h1>
+      <p>movies: 100</p>
+      <p>Series: 50</p>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="box">
+      <h1>Profile</h1>
+      <p><strong>Total subscribers: 106</strong></p>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="box">
+      <h1>My Top Rated</h1>
+      <p>Thor Ragnarok 100</p>
+      <p>SpiderMan 100</p>
+      <p>IT 100</p>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="box">
+      <h1>BOOKINGS</h1>
+      <p>@chutha: Thor </p>
+      <p>@chutha: Thor </p>
+      <p>@chutha: Thor </p>
+      
+    </div>
+  </div>
+</div>
+</div>
+{% endblock %}
+{% block scripts %}
+{{block.super}}
+{% bootstrap_javascript %}
+{% endblock %}

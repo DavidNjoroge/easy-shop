@@ -12,7 +12,9 @@ function initMap() {
         lat: position.coords.latitude,
         lng: position.coords.longitude
       };
-
+      console.log(pos.lat)
+      console.log(pos.lng)
+      
       infoWindow.setPosition(pos);
       infoWindow.setContent('Location found.');
       infoWindow.open(map);
@@ -33,3 +35,17 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
                         'Error: Your browser doesn\'t support geolocation.');
   infoWindow.open(map);
 }
+$('form').submit(function(event){
+    event.preventDefault()
+    form = $("form")
+
+    $.ajax({
+      'url':'/ajax/setup/',
+      'type':'POST',
+      'data':form.serialize(),
+      'dataType':'json',
+      'success': function(data){
+        alert(data['success'])
+      },
+    })
+  })
